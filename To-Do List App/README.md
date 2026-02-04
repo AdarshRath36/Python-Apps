@@ -35,11 +35,8 @@ The app is designed for practicing GUI development, file handling, and event-dri
 todo-app/
 ├─ app.py
 ├─ README.md
-├─ Icons/
-│ └─ icon.png
 └─ Tasks/
-
-> The `Icons` folder is required for the application icon.  
+  
 > The `Tasks` folder is automatically created when saving tasks.
 
 ---
