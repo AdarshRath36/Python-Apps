@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from tkinter import filedialog
+import os
 
 def submit_task(event=None):
 	task = entry1.get()
@@ -62,15 +63,19 @@ def unmark_tasks(event=None):
         messagebox.showerror(title="An error occurred", message="Please select the tasks to unmark")
 
 def save_task(event=None):
-	file = filedialog.asksaveasfile(title="Save Tasks As", initialdir="Tasks", mode="w", defaultextension=".txt", filetypes=(("Text Document", ".txt"), ("All Files", ".*")))
-	if file:
-		tasks = []
-		for i in main_listbox.get(0, END):
-			tasks.append(i)
+        if not os.path.exists("Tasks"):
+                os.mkdir("Tasks")
 
-		for item in tasks:
-			file.write(f"{item.strip()}\n")
-		file.close()
+        else:
+                file = filedialog.asksaveasfile(title="Save Tasks As", initialdir="Tasks", mode="w", defaultextension=".txt", filetypes=(("Text Document", ".txt"), ("All Files", ".*")))
+                if file:
+                        tasks = []
+                        for i in main_listbox.get(0, END):
+                                tasks.append(i)
+
+                        for item in tasks:
+                                file.write(f"{item.strip()}\n")
+                        file.close()
 
 def open_task(event=None):
 	file = filedialog.askopenfilename(title="Open Tasks File", initialdir="Tasks", defaultextension=".txt", filetypes=(("Text Document", ".txt"), ("All Files", ".*")))
