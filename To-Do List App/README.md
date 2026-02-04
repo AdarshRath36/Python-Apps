@@ -86,7 +86,3 @@ python app.py
 - Search and filter options
 
 ---
-
-## License
-
-This project is open for learning and educational use.
